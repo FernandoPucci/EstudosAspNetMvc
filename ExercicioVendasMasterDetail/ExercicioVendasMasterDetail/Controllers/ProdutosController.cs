@@ -17,7 +17,7 @@ namespace ExercicioVendasMasterDetail.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(db.PRODUTO.OrderBy(o => o.DESCRICAO).ToList());
+            return View(db.PRODUTO.OrderBy(o => o.Descricao).ToList());
         }
 
         // GET: Produtos/Details/5
@@ -27,7 +27,7 @@ namespace ExercicioVendasMasterDetail.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PRODUTO produto = db.PRODUTO.Find(id);
+            Produto produto = db.PRODUTO.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace ExercicioVendasMasterDetail.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_PRODUTO,DESCRICAO,VLR_UNIT")] PRODUTO produto)
+        public ActionResult Create([Bind(Include = "ID_PRODUTO,DESCRICAO,VLR_UNIT")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace ExercicioVendasMasterDetail.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PRODUTO produto = db.PRODUTO.Find(id);
+            Produto produto = db.PRODUTO.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace ExercicioVendasMasterDetail.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_PRODUTO,DESCRICAO,VLR_UNIT")] PRODUTO produto)
+        public ActionResult Edit([Bind(Include = "ID_PRODUTO,DESCRICAO,VLR_UNIT")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace ExercicioVendasMasterDetail.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PRODUTO produto = db.PRODUTO.Find(id);
+            Produto produto = db.PRODUTO.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace ExercicioVendasMasterDetail.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
-            PRODUTO produto = db.PRODUTO.Find(id);
+            Produto produto = db.PRODUTO.Find(id);
             db.PRODUTO.Remove(produto);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -7,7 +7,7 @@ namespace ExercicioVendasMasterDetail.Models
     using System.Data.Entity.Spatial;
 
     [Table("VENDAS_DB.ITEM_VENDA")]
-    public partial class ITEM_VENDA
+    public partial class ItemVenda
     {
         [Key]
         public decimal ID_ITEM_VENDA { get; set; }
@@ -20,8 +20,8 @@ namespace ExercicioVendasMasterDetail.Models
 
         public decimal? SUB_TOTAL { get; set; }
 
-        public virtual VENDA VENDA { get; set; }
+        public virtual Venda VENDA { get; set; }
 
-        public virtual PRODUTO PRODUTO { get; set; }
+        public virtual Produto PRODUTO { get; set; }
     }
 }

@@ -7,24 +7,24 @@ namespace ExercicioVendasMasterDetail.Models
     using System.Data.Entity.Spatial;
 
     [Table("VENDAS_DB.CLIENTE")]
-    public partial class CLIENTE
+    public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CLIENTE()
+        public Cliente()
         {
-            VENDA = new HashSet<VENDA>();
+            Venda = new HashSet<Venda>();
         }
 
         [Key]
-        public decimal ID_CLIENTE { get; set; }
+        public decimal IdCliente { get; set; }
 
         [StringLength(30)]
-        public string NOME { get; set; }
+        public string Nome { get; set; }
 
         [StringLength(50)]
-        public string SOBRENOME { get; set; }
+        public string Sobrenome { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VENDA> VENDA { get; set; }
+        public virtual ICollection<Venda> Venda { get; set; }
     }
 }

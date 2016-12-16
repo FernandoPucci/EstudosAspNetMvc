@@ -12,77 +12,77 @@ namespace ExercicioVendasMasterDetail.Models
         {
         }
 
-        public virtual DbSet<CLIENTE> CLIENTE { get; set; }
-        public virtual DbSet<ITEM_VENDA> ITEM_VENDA { get; set; }
-        public virtual DbSet<PRODUTO> PRODUTO { get; set; }
-        public virtual DbSet<VENDA> VENDA { get; set; }
+        public virtual DbSet<Cliente> CLIENTE { get; set; }
+        public virtual DbSet<ItemVenda> ITEM_VENDA { get; set; }
+        public virtual DbSet<Produto> PRODUTO { get; set; }
+        public virtual DbSet<Venda> VENDA { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CLIENTE>()
-                .Property(e => e.ID_CLIENTE)
+            modelBuilder.Entity<Cliente>()
+                .Property(e => e.IdCliente)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<CLIENTE>()
-                .Property(e => e.NOME)
+            modelBuilder.Entity<Cliente>()
+                .Property(e => e.Nome)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CLIENTE>()
-                .Property(e => e.SOBRENOME)
+            modelBuilder.Entity<Cliente>()
+                .Property(e => e.Sobrenome)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CLIENTE>()
-                .HasMany(e => e.VENDA)
-                .WithRequired(e => e.CLIENTE)
+            modelBuilder.Entity<Cliente>()
+                .HasMany(e => e.Venda)
+                .WithRequired(e => e.Cliente)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ITEM_VENDA>()
+            modelBuilder.Entity<ItemVenda>()
                 .Property(e => e.ID_ITEM_VENDA)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<ITEM_VENDA>()
+            modelBuilder.Entity<ItemVenda>()
                 .Property(e => e.ID_VENDA)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<ITEM_VENDA>()
+            modelBuilder.Entity<ItemVenda>()
                 .Property(e => e.ID_PRODUTO)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<ITEM_VENDA>()
+            modelBuilder.Entity<ItemVenda>()
                 .Property(e => e.QUANTIDADE)
                 .HasPrecision(5, 2);
 
-            modelBuilder.Entity<ITEM_VENDA>()
+            modelBuilder.Entity<ItemVenda>()
                 .Property(e => e.SUB_TOTAL)
                 .HasPrecision(5, 2);
 
-            modelBuilder.Entity<PRODUTO>()
-                .Property(e => e.ID_PRODUTO)
+            modelBuilder.Entity<Produto>()
+                .Property(e => e.IdProduto)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<PRODUTO>()
-                .Property(e => e.DESCRICAO)
+            modelBuilder.Entity<Produto>()
+                .Property(e => e.Descricao)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PRODUTO>()
-                .Property(e => e.VLR_UNIT)
+            modelBuilder.Entity<Produto>()
+                .Property(e => e.VlrUnit)
                 .HasPrecision(5, 2);
 
-            modelBuilder.Entity<PRODUTO>()
-                .HasMany(e => e.ITEM_VENDA)
+            modelBuilder.Entity<Produto>()
+                .HasMany(e => e.ItemVenda)
                 .WithRequired(e => e.PRODUTO)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<VENDA>()
-                .Property(e => e.ID_VENDA)
+            modelBuilder.Entity<Venda>()
+                .Property(e => e.IdVenda)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<VENDA>()
-                .Property(e => e.ID_CLIENTE)
+            modelBuilder.Entity<Venda>()
+                .Property(e => e.IdCliente)
                 .HasPrecision(38, 0);
 
-            modelBuilder.Entity<VENDA>()
-                .HasMany(e => e.ITEM_VENDA)
+            modelBuilder.Entity<Venda>()
+                .HasMany(e => e.ItemVenda)
                 .WithRequired(e => e.VENDA)
                 .WillCascadeOnDelete(false);
         }

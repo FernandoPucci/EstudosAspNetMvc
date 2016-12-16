@@ -7,23 +7,26 @@ namespace ExercicioVendasMasterDetail.Models
     using System.Data.Entity.Spatial;
 
     [Table("VENDAS_DB.PRODUTO")]
-    public partial class PRODUTO
+    public partial class Produto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUTO()
+        public Produto()
         {
-            ITEM_VENDA = new HashSet<ITEM_VENDA>();
+            ItemVenda = new HashSet<ItemVenda>();
         }
 
         [Key]
-        public decimal ID_PRODUTO { get; set; }
+        [Column("ID_PRODUTO")]
+        public decimal IdProduto { get; set; }
 
         [StringLength(300)]
-        public string DESCRICAO { get; set; }
+        [Column("DESCRICAO")]
+        public string Descricao { get; set; }
 
-        public decimal? VLR_UNIT { get; set; }
+        [Column("VLR_UNIT")]
+        public decimal? VlrUnit { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ITEM_VENDA> ITEM_VENDA { get; set; }
+        public virtual ICollection<ItemVenda> ItemVenda { get; set; }
     }
 }
