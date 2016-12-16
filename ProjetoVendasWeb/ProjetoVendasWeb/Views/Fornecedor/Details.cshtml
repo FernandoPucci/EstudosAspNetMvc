@@ -1,0 +1,42 @@
+﻿@model ProjetoVendasWeb.Models.Fornecedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fornecedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOME_FORNECEDOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOME_FORNECEDOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COD_FORNECEDOR }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
