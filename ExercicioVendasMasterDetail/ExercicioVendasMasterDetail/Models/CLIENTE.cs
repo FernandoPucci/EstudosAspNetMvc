@@ -16,12 +16,15 @@ namespace ExercicioVendasMasterDetail.Models
         }
 
         [Key]
+        [Column("ID_CLIENTE")]
         public decimal IdCliente { get; set; }
 
         [StringLength(30)]
+        [Column("NOME")]
         public string Nome { get; set; }
 
         [StringLength(50)]
+        [Column("SOBRENOME")]
         public string Sobrenome { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

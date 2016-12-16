@@ -12,9 +12,9 @@ namespace ExercicioVendasMasterDetail.Models
         {
         }
 
-        public virtual DbSet<Cliente> CLIENTE { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<ItemVenda> ITEM_VENDA { get; set; }
-        public virtual DbSet<Produto> PRODUTO { get; set; }
+        public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Venda> VENDA { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,23 +37,23 @@ namespace ExercicioVendasMasterDetail.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ItemVenda>()
-                .Property(e => e.ID_ITEM_VENDA)
+                .Property(e => e.IdItemVenda)
                 .HasPrecision(38, 0);
 
             modelBuilder.Entity<ItemVenda>()
-                .Property(e => e.ID_VENDA)
+                .Property(e => e.IdVenda)
                 .HasPrecision(38, 0);
 
             modelBuilder.Entity<ItemVenda>()
-                .Property(e => e.ID_PRODUTO)
+                .Property(e => e.IdProduto)
                 .HasPrecision(38, 0);
 
             modelBuilder.Entity<ItemVenda>()
-                .Property(e => e.QUANTIDADE)
+                .Property(e => e.Quantidade)
                 .HasPrecision(5, 2);
 
             modelBuilder.Entity<ItemVenda>()
-                .Property(e => e.SUB_TOTAL)
+                .Property(e => e.Subtotal)
                 .HasPrecision(5, 2);
 
             modelBuilder.Entity<Produto>()
@@ -70,7 +70,7 @@ namespace ExercicioVendasMasterDetail.Models
 
             modelBuilder.Entity<Produto>()
                 .HasMany(e => e.ItemVenda)
-                .WithRequired(e => e.PRODUTO)
+                .WithRequired(e => e.Produto)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Venda>()
@@ -83,7 +83,7 @@ namespace ExercicioVendasMasterDetail.Models
 
             modelBuilder.Entity<Venda>()
                 .HasMany(e => e.ItemVenda)
-                .WithRequired(e => e.VENDA)
+                .WithRequired(e => e.Venda)
                 .WillCascadeOnDelete(false);
         }
     }

@@ -10,107 +10,112 @@ using ExercicioVendasMasterDetail.Models;
 
 namespace ExercicioVendasMasterDetail.Controllers
 {
-    public class ProdutosController : Controller
+    public class VendasController : Controller
     {
         private VendasModel db = new VendasModel();
 
-        // GET: Produtos
+        // GET: Vendas
         public ActionResult Index()
         {
-            return View(db.Produto.OrderBy(o => o.Descricao).ToList());
+            var vENDA = db.VENDA.Include(v => v.Cliente);
+            return View(vENDA.ToList());
         }
 
-        // GET: Produtos/Details/5
+        // GET: Vendas/Details/5
         public ActionResult Details(decimal id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Venda venda = db.VENDA.Find(id);
+            if (venda == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(venda);
         }
 
-        // GET: Produtos/Create
+        // GET: Vendas/Create
         public ActionResult Create()
         {
+            ViewBag.IdCliente = new SelectList(db.Cliente, "IdCliente", "Nome");
             return View();
         }
 
-        // POST: Produtos/Create
+        // POST: Vendas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_PRODUTO,DESCRICAO,VLR_UNIT")] Produto produto)
+        public ActionResult Create([Bind(Include = "IdVenda,IdCliente,DtVenda")] Venda venda)
         {
             if (ModelState.IsValid)
             {
-                db.Produto.Add(produto);
+                db.VENDA.Add(venda);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(produto);
+            ViewBag.IdCliente = new SelectList(db.Cliente, "IdCliente", "Nome", venda.IdCliente);
+            return View(venda);
         }
 
-        // GET: Produtos/Edit/5
+        // GET: Vendas/Edit/5
         public ActionResult Edit(decimal id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Venda venda = db.VENDA.Find(id);
+            if (venda == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            ViewBag.IdCliente = new SelectList(db.Cliente, "IdCliente", "Nome", venda.IdCliente);
+            return View(venda);
         }
 
-        // POST: Produtos/Edit/5
+        // POST: Vendas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_PRODUTO,DESCRICAO,VLR_UNIT")] Produto produto)
+        public ActionResult Edit([Bind(Include = "IdVenda,IdCliente,DtVenda")] Venda venda)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
+                db.Entry(venda).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produto);
+            ViewBag.IdCliente = new SelectList(db.Cliente, "IdCliente", "Nome", venda.IdCliente);
+            return View(venda);
         }
 
-        // GET: Produtos/Delete/5
+        // GET: Vendas/Delete/5
         public ActionResult Delete(decimal id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Venda venda = db.VENDA.Find(id);
+            if (venda == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(venda);
         }
 
-        // POST: Produtos/Delete/5
+        // POST: Vendas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
-            Produto produto = db.Produto.Find(id);
-            db.Produto.Remove(produto);
+            Venda venda = db.VENDA.Find(id);
+            db.VENDA.Remove(venda);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -16,10 +16,13 @@ namespace ExercicioVendasMasterDetail.Models
         }
 
         [Key]
+        [Column("ID_VENDA")]
         public decimal IdVenda { get; set; }
 
+        [Column("ID_CLIENTE")]
         public decimal IdCliente { get; set; }
 
+        [Column("DT_VENDA")]
         public DateTime? DtVenda { get; set; }
 
         public virtual Cliente Cliente { get; set; }

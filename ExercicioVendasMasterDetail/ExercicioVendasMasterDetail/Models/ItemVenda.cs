@@ -10,18 +10,23 @@ namespace ExercicioVendasMasterDetail.Models
     public partial class ItemVenda
     {
         [Key]
-        public decimal ID_ITEM_VENDA { get; set; }
+        [Column("ID_ITEM_VENDA")]
+        public decimal IdItemVenda { get; set; }
 
-        public decimal ID_VENDA { get; set; }
+        [Column("ID_VENDA")]
+        public decimal IdVenda { get; set; }
 
-        public decimal ID_PRODUTO { get; set; }
+        [Column("ID_PRODUTO")]
+        public decimal IdProduto { get; set; }
 
-        public decimal? QUANTIDADE { get; set; }
+        [Column("QUANTIDADE")]
+        public decimal? Quantidade { get; set; }
 
-        public decimal? SUB_TOTAL { get; set; }
+        [Column("SUB_TOTAL")]
+        public decimal? Subtotal { get; set; }
 
-        public virtual Venda VENDA { get; set; }
+        public virtual Venda Venda { get; set; }
 
-        public virtual Produto PRODUTO { get; set; }
+        public virtual Produto Produto { get; set; }
     }
 }
