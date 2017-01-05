@@ -208,8 +208,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemVendasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\VendaItemVendaController.cs" />
     <Compile Include="Controllers\VendasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,6 +223,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Venda.cs" />
+    <Compile Include="Models\VendaItemVendaModel.cs" />
     <Compile Include="Models\VendasModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -298,6 +301,13 @@
     <Content Include="Views\Vendas\Details.cshtml" />
     <Content Include="Views\Vendas\Edit.cshtml" />
     <Content Include="Views\Vendas\Index.cshtml" />
+    <Content Include="Views\ItemVendas\Create.cshtml" />
+    <Content Include="Views\ItemVendas\Delete.cshtml" />
+    <Content Include="Views\ItemVendas\Details.cshtml" />
+    <Content Include="Views\ItemVendas\Edit.cshtml" />
+    <Content Include="Views\ItemVendas\Index.cshtml" />
+    <Content Include="Views\Vendas\VendaItemVenda.cshtml" />
+    <Content Include="Views\VendaItemVenda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

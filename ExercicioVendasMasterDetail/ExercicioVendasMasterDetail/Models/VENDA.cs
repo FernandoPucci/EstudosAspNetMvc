@@ -13,6 +13,7 @@ namespace ExercicioVendasMasterDetail.Models
         public Venda()
         {
             ItemVenda = new HashSet<ItemVenda>();
+            DtVenda = new DateTime();
         }
 
         [Key]
