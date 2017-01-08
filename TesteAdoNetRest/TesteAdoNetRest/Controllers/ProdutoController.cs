@@ -16,7 +16,7 @@ namespace TesteAdoNetRest.Controllers
         //{
         //            return new string[] { "value1", "value2" };
         //}
-
+        //Retorna lista de Produtos
         public List<Produto> Get()
         {
             ProdutoDal dal = new ProdutoDal();
